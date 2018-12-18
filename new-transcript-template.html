@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Argon Dashboard</title>
+
+    <!-- Favicon -->
+    <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Argon CSS -->
+    <link type="text/css" href="/assets/css/argon.min.css" rel="stylesheet" />
+    <link type="text/css" href="/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-gradient-blue"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">THE NEW Transcript</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar-info"
+          aria-controls="navbar-info"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-info">
+          <div class="navbar-collapse-header">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="../../index.html"> THE NEW TRANSCRIPT </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button
+                  type="button"
+                  class="navbar-toggler"
+                  data-toggle="collapse"
+                  data-target="#navbar-info"
+                  aria-controls="navbar-info"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span></span> <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="#GradeReveal">
+                  <i class="fas fa-star"></i>
+                <span class="nav-link-inner--text">Grade Reveal</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="#Overall">
+                  <i class="fas fa-chart-line"></i>
+                <span class="nav-link-inner--text">Overall</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="#GPACalculator">
+                  <i class="fas fa-calculator"></i>
+                <span class="nav-link-inner--text">GPA Calculator</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="GradeReveal" class="bg-gradient-blue">
+      <div class="container">
+        <h1><span> GRADE REVEALER </span></h1>
+        <div
+          id="table-component"
+          class="tab-pane tab-example-result fade active show bg-white"
+          role="tabpanel"
+          aria-labelledby="table-component-tab"
+        >
+          <nav aria-label="Semester navigation">
+            <ul class="pagination justify-content-end">
+              <li class="page-item"><a class="page-link" href="#">1/60</a></li>
+              <li class="page-item"><a class="page-link" href="#">2/60</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">3/60</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="table-responsive">
+            <table class="table align-items-center">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">NO</th>
+                  <th scope="col">COURSE NO</th>
+                  <th scope="col">COURSE TITLE</th>
+                  <th scope="col">CREDIT</th>
+                  <th scope="col">GRADE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="no">1</th>
+                  <td class="course-no">123456</td>
+                  <td class="course-title">How to be god</td>
+                  <td class="course-credit">3</td>
+                  <td class="course-grade">
+                    <button
+                      class="course-grade-reveal-button btn btn-icon btn-2 btn-secondary"
+                      type="button"
+                    >
+                      <span class="btn-inner--icon">
+                        <i class="ni ni-active-40"></i>
+                      </span>
+                      <span class="btn-inner--text">Show</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="no">1</th>
+                  <td class="course-no">123456</td>
+                  <td class="course-title">How to be god</td>
+                  <td class="course-credit">3</td>
+                  <td class="course-grade">
+                    <button
+                      class="course-grade-reveal-button btn btn-icon btn-2 btn-secondary"
+                      type="button"
+                    >
+                      <span class="btn-inner--icon">
+                        <i class="ni ni-active-40"></i>
+                      </span>
+                      <span class="btn-inner--text">Show</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="no"></th>
+                  <td class="course-no"></td>
+                  <td class="course-title"></td>
+                  <td class="course-credit"></td>
+                  <td class="course-grade">
+                    <button type="button" class="btn btn-info">
+                      Just Show My Grade !
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="GPA">
+              <span>GPA: 3.45</span>
+              <span>GPAX: 3.45</span>
+
+            </div>
+          </div>
+        </div>
+        <!--
+          <div class="show-all">
+            <button type="button" class="btn btn-sm btn-secondary">
+              Show All
+            </button>
+          </div>
+        -->
+      </div>
+    </section>
+    <div id="Overall" class="container mt--7">
+        <h1><span> Overall Score</span></h1>
+      <div class="card bg-gradient-secondary shadow mb-5">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Overall</h6>
+              <h2 class="mb-0">Total Grades</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <canvas id="pie-chart" width="200" height="400"></canvas>
+        </div>
+      </div>
+      <div class="card bg-gradient-secondary shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
+              <h2 class="text-dark mb-0">lineSales value</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <canvas
+              id="line-chart"
+              width="695"
+              height="350"
+              style="display: block; width: 695px; height: 350px;"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="GPACalculator" class="bg-gradient-purple">
+      <div class="container text-center">
+        <h1><span>GPA Calculator</span></h1>
+        <h1><span>*coming soon..</span></h1>
+      </div>
+    </section>
+
+    <footer class="bg-dark"> 
+      <div class="text-center text-light py-3">
+        Contact me
+        <a href="www.facebook.com/tusaveeiei">tusaveeiei</a>
+      </div>
+    </footer>
+    <!-- Core -->
+    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Optional JS -->
+    <script src="./assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="./assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+    <!-- Argon JS -->
+    <script src="/assets/js/argon.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

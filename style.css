@@ -1,0 +1,62 @@
+:root {
+  --primary-color: #5e72e4;
+  --white-color: #f4f5f7;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+section {
+  padding: 100px 0 200px 0;
+  width: 100%;
+}
+
+#table-component {
+  padding: 1.25rem;
+  border: 1px solid #e6ecf1;
+  border-radius: 0.5rem;
+  background-color: #f5f7f9;
+}
+
+table thead tr th {
+  text-align: center;
+}
+
+table tbody tr th,
+table tbody tr td {
+  text-align: center;
+}
+
+li.page-item a {
+  margin-left: 10px;
+}
+
+.show-all {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.container h1 {
+  vertical-align: middle;
+  color: var(--white-color);
+}
+
+.GPA {
+  display: flex;
+  text-align: center;
+}
+
+div#Overall {
+  padding-bottom: 50px;
+}
+
+div#Overall h1 {
+  text-align: end;
+}
+
+section#GPACalculator div {
+  text-align: center;
+}
