@@ -10,7 +10,6 @@ or
 
 ## TODO features
 
-- [ ] Material UI
 - [ ] \*\*Show grade mode
 - [ ] 1. Show all
 - [ ] 2. Show by each course
