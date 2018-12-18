@@ -181,5 +181,3 @@ let gpax = [
   { title: 'สะสมทั้งหมด', allCredit: '59', gotCredit: '59', gpa: '3.66' },
   { title: 'สะสมทั้งหมด', allCredit: '77', gotCredit: '77', gpa: '3.74' }
 ];
-
-export { semesters, sems, grades, gpa, gpax };

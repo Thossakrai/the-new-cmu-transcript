@@ -91,9 +91,39 @@ function coursesInSemesterInfo(n) {
 
 console.log(student);
 
+let semesters = [];
+let sems = [];
+let grades = [];
+let gpas = [];
+let gpaxs = [];
+
 for (i = 1; i <= numberPassedSemester; i++) {
-  console.log(passedSemesterInfo[i - 1]);
-  console.log(coursesInSemesterInfo(i));
-  console.log(nthSemesterGPAInfo(i));
-  console.log(nthSemesterGPAXInfo(i));
+  let semester = passedSemesterInfo[i - 1];
+  semesters.push(semester);
+  sems.push(
+    semester
+      .replace('ผลการเรียนภาคเรียนที่ ', '')
+      .replace(' ปีการศึกษา 25', '/')
+  );
+  grades.push(coursesInSemesterInfo(i));
+  let gpa = nthSemesterGPAInfo(i);
+  let gpax = nthSemesterGPAXInfo(i);
+
+  gpas.push({
+    title: gpa[0],
+    allCredit: gpa[1],
+    gotCredit: gpa[2],
+    gpa: gpa[3]
+  });
+  gpaxs.push({
+    title: gpax[0],
+    allCredit: gpax[1],
+    gotCredit: gpax[2],
+    gpa: gpax[3]
+  });
 }
+
+let gpa = gpas;
+let gpax = gpaxs;
+console.log({ semesters, sems, grades, gpa, gpax });
+export { semesters, sems, grades, gpa, gpax };
