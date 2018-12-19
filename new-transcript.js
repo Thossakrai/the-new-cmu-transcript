@@ -18,32 +18,34 @@ function getDOMText(selector) {
   return null;
 }
 
+let noCenter = 4;
+
 const studentImage = document.querySelector(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(1) > td > img'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(1) > td > img`
 );
 
 const studentNumber = getDOMText(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(3) > td:nth-child(2)'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(3) > td:nth-child(2)`
 );
 
 const studentFullNameTh = getDOMText(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(4) > td:nth-child(2)'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(4) > td:nth-child(2)`
 );
 
 const studentFullNameEn = getDOMText(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(5) > td'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(5) > td`
 );
 
 const studentAdvisor = getDOMText(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(6) > td:nth-child(2)'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(6) > td:nth-child(2)`
 );
 
 const studentBorn = getDOMText(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(7) > td:nth-child(2)'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(7) > td:nth-child(2)`
 );
 
 const studentId = getDOMText(
-  'body > center:nth-child(5) > table:nth-child(1) > tbody > tr:nth-child(8) > td:nth-child(2)'
+  `body > center > table:nth-child(1) > tbody > tr:nth-child(8) > td:nth-child(2)`
 );
 
 const student = {
@@ -221,8 +223,8 @@ const theNewTranscriptHTML = ` <!DOCTYPE html> <html> <head> <meta charset="utf-
 }</div> </div> </div> <div style="padding: 0 20px"><h1><span> GRADE REVEALER </span></h1></div> <div id="table-component" class="tab-pane tab-example-result fade active show bg-white" role="tabpanel" aria-labelledby="table-component-tab" > <nav aria-label="Semester navigation"> <ul id="sems" class="pagination justify-content-end"> </ul> </nav> <div class="table-responsive"> <table class="table align-items-center"> <thead class="thead-light"> <tr> <th scope="col">NO</th> <th scope="col">COURSE NO</th> <th scope="col">COURSE TITLE</th> <th scope="col">CREDIT</th> <th scope="col">GRADE</th> </tr> </thead> <tbody id="grades-by-semester"> </tbody> </table> <div class="gpa-gpax-table"> <table class="table align-items-center"> <thead class="thead-light"> <tr> <th scope="col">Result</th> <th scope="col">All Credits</th> <th scope="col">Receive Credits</th> <th scope="col">GPA</th> </tr> </thead> <tbody id="gpa-by-semester"> </tbody> </table> </div> </div> </div> </div> </div> </section> <div id="Overall" class="container-fluid mt--7"> <div> <h1><span class="text-secondary text-uppercase"> Overall Score</span></h1> </div> <div class="row" style="margin: 50px"> <div class="col-lg-8 mt--5"> <div class="card bg-gradient-secondary shadow mb-5"> <div class="card-body"> <canvas id="bar-chart" width="200"></canvas> </div> </div> </div> <div class="col-lg-4 mt-1"> <div class="card bg-gradient-secondary shadow mb-5"> <div class="card-body"> <canvas id="pie-chart" height="200" width="200" style="max-height:400px; max-width:400px"></canvas> </div> </div> </div> </div> </div> <div class="container" style="padding-bottom:50px"> <div class="card bg-gradient-secondary shadow mt--7"> <div class="card-body"> <canvas id="line-chart" width="695" height="350" style="display: block; width: 500px; height: 300px;" ></canvas> </div> </div> </div> </div> <footer class="bg-dark"> <div class="text-center text-light py-3"> Contact me <a href="www.facebook.com/tusaveeiei" class="text-underline text-blue">tusaveeiei</a> </div> </footer> <!-- Core --> <script src="/assets/vendor/jquery/dist/jquery.min.js"></script> <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script> <!-- Optional JS --> <script src="./assets/vendor/chart.js/dist/Chart.min.js"></script> <script src="./assets/vendor/chart.js/dist/Chart.extension.js"></script> <!-- Argon JS --> <script src="/assets/js/argon.min.js"></script> <script type="module" src="index.js"></script> <script src="assets/js/lodash.js"></script> </body> </html> `;
 
 //first time loading
-let main = document.querySelector('body > center:nth-child(5)');
-let headReg = (getDOM('body > center:nth-child(3)').innerHTML = '');
+let main = document.querySelector('body > center');
+let headReg = _.forEach(getDOMs('body > center'), dom => (dom.innerHTML = ''));
 
 main.innerHTML = '';
 main.innerHTML += theNewTranscriptHTML;
