@@ -13,6 +13,7 @@ _This is **the new transcript UI page** for [Chaing Mai University transcript pa
 ## TODO features
 
 - [x] \*\*Show grade mode
+- [X] Switch between modern and new
 - [x] 1. Show all
 - [x] 2. Show by each course
 - [x] \*\*Show grade when clicked the grade card

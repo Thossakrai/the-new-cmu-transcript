@@ -81,3 +81,15 @@ section#GPACalculator div {
 .coming-soon {
   cursor: not-allowed;
 }
+
+.stick-right-corner {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+}
+
+.stick-left-corner {
+  position: fixed;
+  top: 5%;
+  left: 2%;
+}
