@@ -62,7 +62,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="#GPACalculator">
-                  <i class="fas fa-calculator"></i>
                 <span class="nav-link-inner--text">GPA Calculator</span>
               </a>
             </li>
@@ -72,12 +71,19 @@
     </nav>
     
     
-    <section id="GradeReveal" class="bg-gradient-blue">
-      <div class="text-center py-3 text-uppercase">
-        <h1 class="text-secondary text-underline text-lg-center"><span>the new transcript</span></h1>
-      </div>
+    <section id="GradeReveal" class="bg-gradient-blue" style="padding-bottom:100px">
+
       <div class="container">
-        <h1><span> GRADE REVEALER </span></h1>
+
+        <div class="profile" style="padding: 30px 0">
+            <div class="row text-secondary text-lg" style="margin: 0 10vw; text-align: center">
+              <div class="col">${student.nameTh}</div>
+              <div class="col">${student.nameEn}</div>
+              <div class="col">${student.number}</div>
+            </div>
+          </div>
+          
+        <div style="padding: 0 20px"><h1><span> GRADE REVEALER </span></h1></div>
         <div
           id="table-component"
           class="tab-pane tab-example-result fade active show bg-white"
@@ -130,7 +136,7 @@
     <footer class="bg-dark"> 
       <div class="text-center text-light py-3">
         Contact me
-        <a href="www.facebook.com/tusaveeiei">tusaveeiei</a>
+        <a href="www.facebook.com/tusaveeiei" class="text-underline text-blue">tusaveeiei</a>
       </div>
     </footer>
 

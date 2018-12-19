@@ -4,7 +4,7 @@ _This is **the new transcript UI page** for [Chaing Mai University transcript pa
 
 ### Screenshot
 
-<img src="./screenshots/demo.png" alt="demo" width="550"/>
+<img src="./screenshots/demo.png" alt="demo" width="800"/>
 
 ## TODO features
 
