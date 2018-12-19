@@ -62,7 +62,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="#GPACalculator">
-                  <i class="fas fa-calculator"></i>
                 <span class="nav-link-inner--text">GPA Calculator</span>
               </a>
             </li>
@@ -72,12 +71,19 @@
     </nav>
     
     
-    <section id="GradeReveal" class="bg-gradient-blue">
-      <div class="text-center py-3 text-uppercase">
-        <h1 class="text-secondary text-underline text-lg-center"><span>the new transcript</span></h1>
-      </div>
+    <section id="GradeReveal" class="bg-gradient-blue" style="padding-bottom:100px">
+
       <div class="container">
-        <h1><span> GRADE REVEALER </span></h1>
+
+        <div class="profile" style="padding: 30px 0">
+            <div class="row text-secondary text-lg" style="margin: 0 10vw; text-align: center">
+              <div class="col">${student.nameTh}</div>
+              <div class="col">${student.nameEn}</div>
+              <div class="col">${student.number}</div>
+            </div>
+          </div>
+          
+        <div style="padding: 0 20px"><h1><span> GRADE REVEALER </span></h1></div>
         <div
           id="table-component"
           class="tab-pane tab-example-result fade active show bg-white"
@@ -126,11 +132,47 @@
       </div>
     </section>
 
+    <div id="Overall" class="container mt--7">
+        <h1><span> Overall Score</span></h1>
+      <div class="card bg-gradient-secondary shadow mb-5">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Overall</h6>
+              <h2 class="mb-0">Total Grades</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <canvas id="pie-chart" width="200" height="400"></canvas>
+        </div>
+      </div>
+      <div class="card bg-gradient-secondary shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
+              <h2 class="text-dark mb-0">lineSales value</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <canvas
+              id="line-chart"
+              width="695"
+              height="350"
+              style="display: block; width: 695px; height: 350px;"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <footer class="bg-dark"> 
       <div class="text-center text-light py-3">
         Contact me
-        <a href="www.facebook.com/tusaveeiei">tusaveeiei</a>
+        <a href="www.facebook.com/tusaveeiei" class="text-underline text-blue">tusaveeiei</a>
       </div>
     </footer>
 

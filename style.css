@@ -8,8 +8,8 @@ body {
   width: 100%;
   height: 100%;
 }
+
 section {
-  padding: 10px 0 200px 0;
   width: 100%;
 }
 
@@ -30,13 +30,11 @@ table tbody tr td {
 }
 
 li.page-item a {
-  margin-left: 10px;
 }
 
 .show-all {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
 }
 
 .container h1 {
@@ -54,7 +52,7 @@ div#Overall {
 }
 
 div#Overall h1 {
-  text-align: end;
+  text-align: center;
 }
 
 section#GPACalculator div {
@@ -68,4 +66,18 @@ section#GPACalculator div {
 .gpa-gpax-table table {
   margin: auto;
   width: 50%;
+}
+
+.profile-img {
+  width: 100%;
+  border-radius: 10%;
+}
+
+.div-profile-img {
+  box-shadow: 5px #e6ecf1;
+  margin: 10px;
+}
+
+.coming-soon {
+  cursor: not-allowed;
 }

@@ -1,7 +1,7 @@
 {
-  "name": "The new Transcript",
-  "version": "1.0",
-  "description": "NEW UI FOR CMU TRANSCRIPT PAGE",
+  "name": "The Transcript",
+  "version": "1.1",
+  "description": "The transcript is a extension to re-render CMU transcript page.",
   "manifest_version": 2,
   "content_scripts": [
     {
@@ -11,14 +11,10 @@
         "/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
         "/assets/js/argon.min.js",
         "/assets/js/lodash.js",
-        "index.js"
+        "/assets/vendor/chart.js/dist/Chart.min.js",
+        "new-transcript.js"
       ],
-      "css": [
-        "/assets/vendor/nucleo/css/nucleo.css",
-        "/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
-        "/assets/css/argon.min.css",
-        "/style.css"
-      ]
+      "css": ["/assets/css/argon.min.css", "/style.css"]
     }
   ]
 }
