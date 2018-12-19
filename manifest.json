@@ -11,6 +11,7 @@
         "/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
         "/assets/js/argon.min.js",
         "/assets/js/lodash.js",
+        "/assets/vendor/chart.js/dist/Chart.min.js",
         "index.js"
       ],
       "css": [

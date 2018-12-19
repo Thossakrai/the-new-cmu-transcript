@@ -120,6 +120,21 @@ let sems = [];
 let grades = [];
 let gpas = [];
 let gpaxs = [];
+let gradeCount = {
+  a: 0,
+  bp: 0,
+  b: 0,
+  cp: 0,
+  c: 0,
+  dp: 0,
+  d: 0,
+  f: 0,
+  s: 0,
+  u: 0,
+  v: 0,
+  w: 0,
+  other: 0
+};
 
 for (i = 1; i <= numberPassedSemester; i++) {
   let semester = passedSemesterInfo[i - 1];
@@ -130,6 +145,7 @@ for (i = 1; i <= numberPassedSemester; i++) {
       .replace('ผลการเรียนภาคเรียนที่ ', '')
       .replace(' ปีการศึกษา 25', '/')
   );
+
   grades.push(coursesInSemesterInfo(i));
   let gpa = nthSemesterGPAInfo(i);
   let gpax = nthSemesterGPAXInfo(i);
@@ -154,7 +170,51 @@ let gpax = gpaxs;
 console.log({ semesters, sems, grades, gpa, gpax });
 
 grades = _.map(grades, grade => {
-  return _.map(grade, course => course.course);
+  return _.map(grade, course => {
+    switch (course.course.grade) {
+      case 'A':
+        gradeCount.a++;
+        break;
+      case 'B+':
+        gradeCount.bp++;
+        break;
+      case 'B':
+        gradeCount.b++;
+        break;
+      case 'C+':
+        gradeCount.cp++;
+        break;
+      case 'C':
+        gradeCount.c++;
+        break;
+      case 'D+':
+        gradeCount.dp++;
+        break;
+      case 'D':
+        gradeCount.d++;
+        break;
+      case 'F':
+        gradeCount.f++;
+        break;
+      case 'S':
+        gradeCount.s++;
+        break;
+      case 'U':
+        gradeCount.u++;
+        break;
+      case 'V':
+        gradeCount.v++;
+        break;
+      case 'W':
+        gradeCount.w++;
+        break;
+      default:
+        gradeCount.other++;
+        break;
+    }
+
+    return course.course;
+  });
 });
 
 // start here
@@ -176,7 +236,7 @@ const theNewTranscriptHTML = `<!DOCTYPE html>
       class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-gradient-blue"
     >
       <div class="container">
-        <a class="navbar-brand" href="#">THE NEW Transcript</a>
+        <a class="navbar-brand text-white text-lg" href="#">THE Transcript</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -221,8 +281,8 @@ const theNewTranscriptHTML = `<!DOCTYPE html>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="#GPACalculator">
-                <span class="nav-link-inner--text">GPA Calculator</span>
+              <a class="nav-link nav-link-icon coming-soon" href="">
+                <span class="nav-link-inner--text">*GPA Calculator</span>
               </a>
             </li>
           </ul>
@@ -231,7 +291,7 @@ const theNewTranscriptHTML = `<!DOCTYPE html>
     </nav>
     
     
-    <section id="GradeReveal" class="bg-gradient-blue" style="padding-bottom:100px">
+    <section id="GradeReveal" class="bg-gradient-blue" style="padding-bottom:280px">
 
       <div class="container">
 
@@ -291,6 +351,48 @@ const theNewTranscriptHTML = `<!DOCTYPE html>
         </div>
       </div>
     </section>
+
+    <div id="Overall" class="container-fluid mt--7">
+      <div>
+        <h1><span class="text-secondary text-uppercase"> Overall Score</span></h1>
+      </div>
+      
+      <div class="row" style="margin: 50px">
+
+        <div class="col-lg-8 mt--5">
+          <div class="card bg-gradient-secondary shadow mb-5">
+            <div class="card-body">
+              <canvas id="bar-chart" width="200"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-1">
+          <div class="card bg-gradient-secondary shadow mb-5">
+            <div class="card-body">
+              <canvas id="pie-chart" height="200" width="200" style="max-height:400px; max-width:400px"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container" style="padding-bottom:50px">
+    
+      <div class="card bg-gradient-secondary shadow mt--7">
+        <div class="card-body">
+            <canvas
+              id="line-chart"
+              width="695"
+              height="350"
+              style="display: block; width: 500px; height: 300px;"
+            ></canvas>
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
 
     <footer class="bg-dark"> 
@@ -464,4 +566,157 @@ _.forEach(sems, (sem, index) => {
       });
     });
   });
+});
+
+let gradeLabel = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
+let gradeCountData = [
+  gradeCount.a,
+  gradeCount.bp,
+  gradeCount.b,
+  gradeCount.cp,
+  gradeCount.c,
+  gradeCount.dp,
+  gradeCount.d,
+  gradeCount.f
+];
+let gradeColors = [
+  '#66BB6A',
+  '#4FC3F7',
+  '#64B5F6',
+  '#BA68C8',
+  '#F06292',
+  '#FFD54F',
+  '#FFB74D',
+  '#e57373'
+];
+
+console.log(gradeCount);
+
+var ctx = document.getElementById('pie-chart');
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: gradeLabel,
+
+    datasets: [
+      {
+        label: 'Grades',
+        backgroundColor: gradeColors,
+        data: gradeCountData
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Overall Grades (Doughnut Chart)'
+    }
+  }
+});
+
+var ctx1 = document.getElementById('bar-chart');
+var myPieChart = new Chart(ctx1, {
+  type: 'bar',
+  data: {
+    labels: gradeLabel,
+
+    datasets: [
+      {
+        backgroundColor: gradeColors,
+        data: gradeCountData
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    legend: { display: false },
+    title: {
+      display: true,
+      text: 'Overall Grades (Bar Chart)'
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            min: 0,
+            stepSize: 1
+          }
+        }
+      ]
+    }
+  }
+});
+
+let gpaOverall = _.map(gpa, g => {
+  return g.gpa;
+});
+
+let gpaxOverall = _.map(gpax, g => {
+  return g.gpa;
+});
+
+var ctx2 = document.getElementById('line-chart');
+var myPieChart = new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: sems,
+    datasets: [
+      {
+        label: 'GPA',
+        borderColor: '#5e72e4',
+        pointBackgroundColor: '#5e72e4',
+        pointRadius: 3,
+        data: gpaOverall,
+        fill: false,
+        lineTension: 0
+      },
+      {
+        label: 'GPAX',
+        borderColor: '#2dce89',
+        pointRadius: 3,
+        pointBackgroundColor: '#2dce89',
+        data: gpaxOverall,
+        fill: false,
+        lineTension: 0
+      }
+    ]
+  },
+
+  options: {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Overall GPA and GPAX '
+    },
+    hover: {
+      mode: 'nearest',
+      intersect: true
+    },
+    scales: {
+      xAxes: [
+        {
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Semester'
+          }
+        }
+      ],
+      yAxes: [
+        {
+          ticks: {
+            max: 4,
+            min: 0,
+            stepSize: 0.5
+          },
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Grade'
+          }
+        }
+      ]
+    }
+  }
 });
