@@ -113,8 +113,6 @@ function coursesInSemesterInfo(n) {
   });
 }
 
-console.log(student);
-
 let semesters = [];
 let sems = [];
 let grades = [];
@@ -167,8 +165,6 @@ for (i = 1; i <= numberPassedSemester; i++) {
 let gpa = gpas;
 let gpax = gpaxs;
 
-console.log({ semesters, sems, grades, gpa, gpax });
-
 grades = _.map(grades, grade => {
   return _.map(grade, course => {
     switch (course.course.grade) {
@@ -219,7 +215,19 @@ grades = _.map(grades, grade => {
 
 // start here
 const theNewTranscriptHTML = `
-    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+  </head>
+
+  <body>
+
     <nav
       class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-gradient-blue"
     >
@@ -402,7 +410,8 @@ const theNewTranscriptHTML = `
     <script src="/assets/js/argon.min.js"></script>
     <script type="module" src="index.js"></script>
     <script src="assets/js/lodash.js"></script>
-
+  </body>
+</html>
 `;
 
 //first time loading
@@ -575,8 +584,6 @@ let gradeColors = [
   '#FFB74D',
   '#e57373'
 ];
-
-console.log(gradeCount);
 
 var ctx = document.getElementById('pie-chart');
 var myPieChart = new Chart(ctx, {
