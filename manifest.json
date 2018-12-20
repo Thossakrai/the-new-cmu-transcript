@@ -1,7 +1,7 @@
 {
-  "name": "The Transcript",
-  "version": "1.1",
-  "description": "The transcript is a extension to re-render CMU transcript page.",
+  "name": "The Transcript : CMU modern transcript extension",
+  "version": "1.2",
+  "description": "The Transcript : CMU modern transcript extension is a chrome extension to re-render user interface for Chiang Mai University transcript page. It is designed base on old design adding some features like Grade Revealer or Overall Grade.",
   "manifest_version": 2,
   "content_scripts": [
     {
@@ -16,5 +16,10 @@
       ],
       "css": ["/assets/css/argon.min.css", "/style.css"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }

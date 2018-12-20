@@ -1,18 +1,21 @@
 # The New CMU transcript
 
-_This is **the new transcript UI page** for [Chaing Mai University transcript page](https://www3.reg.cmu.ac.th/transcript)_
+This is **the new transcript UI page** for [Chaing Mai University transcript page](https://www3.reg.cmu.ac.th/transcript)\_
 
 ### Screenshot
 
-<img src="./screenshots/v1.1.png" alt="demo" width="700"/> <br>
+<img src="./screenshots/v1.2.png" alt="demo" width="700"/> <br>
 
-<img src="./screenshots/v1.1gradeshow.png" alt="demo" width="700"/> <br>
+<img src="./screenshots/v1.2gradereveal.png" alt="demo" width="700"/> <br>
 
-<img src="./screenshots/v1.1gradereveal.png" alt="demo" width="700"/>
+<img src="./screenshots/v1.2gradeshow.png" alt="demo" width="700"/> <br>
+
+<img src="./screenshots/v1.2overall.png" alt="demo" width="700"/> <br>
 
 ## TODO features
 
 - [x] \*\*Show grade mode
+- [x] Switch between modern and new
 - [x] 1. Show all
 - [x] 2. Show by each course
 - [x] \*\*Show grade when clicked the grade card
@@ -24,4 +27,4 @@ _This is **the new transcript UI page** for [Chaing Mai University transcript pa
 
 ### Author
 
-Designed and Created by [Tusave](www.facebook.com/tusaveeiei)
+Designed and Created by [Tusave](https://www.facebook.com/tusaveeiei)
