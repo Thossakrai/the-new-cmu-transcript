@@ -404,6 +404,8 @@ function switchNewDesign() {
       _.forEach(sems, (sem, index) => {
         let it = document.querySelector(`#sem_id${index}`);
         it.className = it.className.replace(' active', '');
+        let gpa = document.querySelector('#gpa-by-semester');
+        gpa.innerHTML = '';
       });
 
       let it = document.querySelector(`#sem_id${index}`);
