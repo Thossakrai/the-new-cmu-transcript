@@ -26,27 +26,27 @@ const studentImage = document.querySelector(
 
 const studentNumber = getDOMText(
   `body > center > table:nth-child(1) > tbody > tr:nth-child(3) > td:nth-child(2)`
-)
+);
 
 const studentFullNameTh = getDOMText(
   `body > center > table:nth-child(1) > tbody > tr:nth-child(4) > td:nth-child(2)`
-)
+);
 
 const studentFullNameEn = getDOMText(
   `body > center > table:nth-child(1) > tbody > tr:nth-child(5) > td`
-)
+);
 
 const studentAdvisor = getDOMText(
   `body > center > table:nth-child(1) > tbody > tr:nth-child(6) > td:nth-child(2)`
-)
+);
 
 const studentBorn = getDOMText(
   `body > center > table:nth-child(1) > tbody > tr:nth-child(7) > td:nth-child(2)`
-)
+);
 
 const studentId = getDOMText(
   `body > center > table:nth-child(1) > tbody > tr:nth-child(8) > td:nth-child(2)`
-)
+);
 
 const student = {
   img: studentImage,
@@ -137,6 +137,7 @@ let gradeCount = {
   w: 0,
   other: 0
 };
+let gradeCountTotal = 0;
 
 for (i = 1; i <= numberPassedSemester; i++) {
   let semester = passedSemesterInfo[i - 1];
@@ -171,6 +172,7 @@ let gpax = gpaxs;
 
 grades = _.map(grades, grade => {
   return _.map(grade, course => {
+    gradeCountTotal++;
     switch (course.course.grade) {
       case 'A':
         gradeCount.a++;
@@ -223,25 +225,21 @@ grades = _.map(grades, grade => {
 let mode = 'new';
 let oldTranscriptHTML = document.querySelector('body').innerHTML;
 
-document.querySelector('body').innerHTML +=
-  `
-    <button type="button" class="btn btn-primary btn-lg stick-left-corner " id="switchModeButton">
+document.querySelector('body').innerHTML += `
+    <button type="button" class="btn btn-primary btn-sm stick-left-corner " id="switchModeButton">
       Old Design
     </button>
   `;
 
-  
 document.querySelector('#switchModeButton').addEventListener('click', () => {
   switchTranscriptUI();
 });
 
 switchNewDesign();
 
-  
 function switchMode() {
-  mode == 'old' ? (mode = 'new') : mode = 'old';
+  mode == 'old' ? (mode = 'new') : (mode = 'old');
 }
-
 
 function switchNewDesign() {
   let headReg = _.forEach(
@@ -287,10 +285,10 @@ function switchNewDesign() {
       <div class="container">
           <div class="profile" style="padding: 30px 0">
               <div class="row text-secondary text-lg" style="margin: 0 10vw; text-align: center">
-                  <div class="col">${ student.nameTh }
+                  <div class="col">${student.nameTh}
                   </div>
                   <div class="col">${student.nameEn}</div>
-                  <div class="col">${ student.number }
+                  <div class="col">${student.number}
                   </div>
               </div>
           </div>
@@ -298,7 +296,7 @@ function switchNewDesign() {
               <h1><span> GRADE REVEALER </span></h1></div>
           <div id="table-component" class="tab-pane tab-example-result fade active show bg-white" role="tabpanel" aria-labelledby="table-component-tab">
               <nav aria-label="Semester navigation">
-                  <ul id="sems" class="pagination justify-content-end"> </ul>
+                  <ul id="sems" class="pagination justify-content-center"> </ul>
               </nav>
               <div class="table-responsive">
                   <table class="table align-items-center">
@@ -331,8 +329,8 @@ function switchNewDesign() {
       </div>
       </div>
   </section>
-  <div id="Overall" class="container-fluid mt--7">
-      <div>
+  <div id="Overall" class="container-fluid mt--9">
+      <div style="padding-bottom:10px">
           <h1><span class="text-secondary text-uppercase"> Overall Score</span></h1> </div>
       <div class="row" style="margin: 50px">
           <div class="col-lg-8 mt--5">
@@ -342,7 +340,7 @@ function switchNewDesign() {
                   </div>
               </div>
           </div>
-          <div class="col-lg-4 mt-1">
+          <div class="col-lg-4 mt-4">
               <div class="card bg-gradient-secondary shadow mb-5">
                   <div class="card-body">
                       <canvas id="pie-chart" height="200" width="200" style="max-height:400px; max-width:400px"></canvas>
@@ -360,7 +358,7 @@ function switchNewDesign() {
   </div>
   </div>
   <footer class="bg-dark">
-      <div class="text-center text-light py-3"> Contact me <a href="www.facebook.com/tusaveeiei" class="text-underline text-blue">tusaveeiei</a> </div>
+      <div class="text-center text-light py-3"> Made with <3. Contact me <a href="https://www.facebook.com/tusaveeiei" class="text-underline text-blue">tusaveeiei</a> </div>
   </footer>
   <!-- Core -->
   <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
@@ -375,12 +373,13 @@ function switchNewDesign() {
 </body>
 
 </html>
-`
+`;
   main.innerHTML = newTranscriptHTML;
 
-  document.querySelector('#switchModeButton').className = "btn btn-secondary btn-lg stick-left-corner "
-  document.querySelector('#switchModeButton').innerText = "Old design";
-  
+  document.querySelector('#switchModeButton').className =
+    'btn btn-secondary btn-sm stick-left-corner ';
+  document.querySelector('#switchModeButton').innerText = 'Old design';
+
   _.forEach(sems, (sem, index) => {
     document.querySelector(
       '#sems'
@@ -401,53 +400,51 @@ function switchNewDesign() {
 
   _.forEach(sems, (sem, index) => {
     semester = index;
-    document
-      .querySelector(`#sem_id${index}`)
-      .addEventListener('click', () => {
-        _.forEach(sems, (sem, index) => {
-          let it = document.querySelector(`#sem_id${index}`);
-          it.className = it.className.replace(' active', '');
-        });
-
+    document.querySelector(`#sem_id${index}`).addEventListener('click', () => {
+      _.forEach(sems, (sem, index) => {
         let it = document.querySelector(`#sem_id${index}`);
-        it.className += ' active';
+        it.className = it.className.replace(' active', '');
+      });
 
-        let semester = index;
-        let courses = document.querySelector('#grades-by-semester');
-        courses.innerHTML = '';
-        let courseNo = 0;
-        let courseGrade;
-        _.forEach(grades[semester], (course, index) => {
-          switch (course.grade) {
-            case 'A':
-              courseGrade = '<span class="text-success">A</span>';
-              break;
-            case 'B+':
-              courseGrade = '<span class="text-cyan">B+</span>';
-              break;
-            case 'B':
-              courseGrade = '<span class="text-blue">B</span>';
-              break;
-            case 'C+':
-              courseGrade = '<span class="text-info">C+</span>';
-              break;
-            case 'C':
-              courseGrade = '<span class="text-purple">C</span>';
-              break;
-            case 'D+':
-              courseGrade = '<span class="text-orange">D+</span>';
-              break;
-            case 'D':
-              courseGrade = '<span class="text-warning">D</span>';
-              break;
-            case 'F':
-              courseGrade = '<span class="text-danger">F</span>';
-              break;
-            default:
-              courseGrade = course.grade;
-              break;
-          }
-          document.querySelector('#grades-by-semester').innerHTML += ` 
+      let it = document.querySelector(`#sem_id${index}`);
+      it.className += ' active';
+
+      let semester = index;
+      let courses = document.querySelector('#grades-by-semester');
+      courses.innerHTML = '';
+      let courseNo = 0;
+      let courseGrade;
+      _.forEach(grades[semester], (course, index) => {
+        switch (course.grade) {
+          case 'A':
+            courseGrade = '<span class="text-success">A</span>';
+            break;
+          case 'B+':
+            courseGrade = '<span class="text-cyan">B+</span>';
+            break;
+          case 'B':
+            courseGrade = '<span class="text-blue">B</span>';
+            break;
+          case 'C+':
+            courseGrade = '<span class="text-info">C+</span>';
+            break;
+          case 'C':
+            courseGrade = '<span class="text-purple">C</span>';
+            break;
+          case 'D+':
+            courseGrade = '<span class="text-orange">D+</span>';
+            break;
+          case 'D':
+            courseGrade = '<span class="text-warning">D</span>';
+            break;
+          case 'F':
+            courseGrade = '<span class="text-danger">F</span>';
+            break;
+          default:
+            courseGrade = course.grade;
+            break;
+        }
+        document.querySelector('#grades-by-semester').innerHTML += ` 
       <tr>
         <th scope="row" class="no">${index}</th>
         <td class="course-no">${course.no}</td>
@@ -467,11 +464,11 @@ function switchNewDesign() {
           </span>
         </td>
       </tr>`;
-        });
+      });
 
-        let semGPA = gpa[semester];
-        let semGPAX = gpax[semester];
-        document.querySelector('#grades-by-semester').innerHTML += `
+      let semGPA = gpa[semester];
+      let semGPAX = gpax[semester];
+      document.querySelector('#grades-by-semester').innerHTML += `
       <tr>
         <th scope="row" class="no"></th>
         <td class="course-no"></td>
@@ -484,24 +481,22 @@ function switchNewDesign() {
         </td>
       </tr>`;
 
-        let justShowButton = document.querySelector('#just-show-grade');
-        justShowButton.addEventListener('click', () => {
-          let ans = confirm('Show All?');
-          if (ans) {
-            _.forEach(grades[semester], course => {
-              let button = document.querySelector(
-                `#button-of-course${course.no}`
-              );
-              button.className += ' hide';
-              let grade = document.querySelector(
-                `#grade-of-course${course.no}`
-              );
-              grade.className = grade.className.replace('hide', '');
-              // justShowButton.className += ' hide';
-              justShowButton.setAttribute('disabled', true);
+      let justShowButton = document.querySelector('#just-show-grade');
+      justShowButton.addEventListener('click', () => {
+        let ans = confirm('Show All?');
+        if (ans) {
+          _.forEach(grades[semester], course => {
+            let button = document.querySelector(
+              `#button-of-course${course.no}`
+            );
+            button.className += ' hide';
+            let grade = document.querySelector(`#grade-of-course${course.no}`);
+            grade.className = grade.className.replace('hide', '');
+            justShowButton.className += ' invisible';
+            // justShowButton.setAttribute('disabled', true);
 
-              document.querySelector('#gpa-by-semester').innerHTML = '';
-              document.querySelector('#gpa-by-semester').innerHTML += `  
+            document.querySelector('#gpa-by-semester').innerHTML = '';
+            document.querySelector('#gpa-by-semester').innerHTML += `  
           <tr>
             <th scope="row">${semGPA.title}</th>
             <td >${semGPA.allCredit}</td>
@@ -514,23 +509,19 @@ function switchNewDesign() {
             <td >${semGPAX.gotCredit}</td>
             <td class="text-dark">${semGPAX.gpa}</td>
           </tr>`;
-            });
-          }
-        });
-
-        _.forEach(grades[semester], course => {
-          let button = document.querySelector(
-            `#button-of-course${course.no}`
-          );
-          button.addEventListener('click', () => {
-            button.className += ' hide';
-            let grade = document.querySelector(
-              `#grade-of-course${course.no}`
-            );
-            grade.className = grade.className.replace('hide', '');
           });
+        }
+      });
+
+      _.forEach(grades[semester], course => {
+        let button = document.querySelector(`#button-of-course${course.no}`);
+        button.addEventListener('click', () => {
+          button.className += ' hide';
+          let grade = document.querySelector(`#grade-of-course${course.no}`);
+          grade.className = grade.className.replace('hide', '');
         });
       });
+    });
   });
 
   let gradeLabel = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
@@ -572,8 +563,9 @@ function switchNewDesign() {
     options: {
       responsive: true,
       title: {
+        position: 'bottom',
         display: true,
-        text: 'Overall Grades (Doughnut Chart)'
+        text: `Overall Grades (Total: ${gradeCountTotal})`
       }
     }
   });
@@ -596,7 +588,7 @@ function switchNewDesign() {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Overall Grades (Bar Chart)'
+        text: `Overall Grades (Total: ${gradeCountTotal})`
       },
       scales: {
         yAxes: [
@@ -687,12 +679,14 @@ function switchNewDesign() {
 
 function switchTranscriptUI() {
   switchMode();
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
   if (mode == 'old') {
     let main = getDOM('body > center');
     main.innerHTML = oldTranscriptHTML;
-    document.querySelector('#switchModeButton').className = "btn btn-primary btn-lg stick-right-corner "
-    document.querySelector('#switchModeButton').innerHTML = "<strong>Recommended!</strong> New design"
+    document.querySelector('#switchModeButton').className =
+      'btn btn-primary btn-lg stick-right-corner ';
+    document.querySelector('#switchModeButton').innerHTML =
+      '<strong>Recommended!</strong> New design';
   } else {
     switchNewDesign();
   }

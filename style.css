@@ -63,6 +63,10 @@ section#GPACalculator div {
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .gpa-gpax-table table {
   margin: auto;
   width: 50%;
